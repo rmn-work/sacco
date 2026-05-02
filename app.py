@@ -213,7 +213,7 @@ if st.session_state.user:
             all_m = pd.read_sql("SELECT id, nom, prenom, telephone, role, groupe_id, last_login FROM membres", db_conn)
             st.dataframe(all_m, use_container_width=True)
             
-            with st.expander("Modifier ou Déplacer un Membre"):
+            with st.expander("Modifier ou Déplacer un Membre (Point 47, 49, 50)"):
                 m_id = st.number_input("ID du Membre", step=1)
                 new_role = st.selectbox("Nouveau Rôle", ["membre", "president", "secretaire"])
                 new_grp = st.number_input("Nouveau Groupe ID", step=1)
@@ -224,7 +224,7 @@ if st.session_state.user:
                     st.success("Modifications enregistrées.")
 
         elif choice == "Audit Global":
-            st.subheader("🕵️ Audit Complet des Transactions")
+            st.subheader("🕵️ Audit Complet des Transactions (Point 19, 52)")
             logs = pd.read_sql("SELECT * FROM logs ORDER BY id DESC", db_conn)
             st.table(logs)
             
